@@ -28,7 +28,7 @@ class User(AbstractUser):
     
     phone_number = models.CharField(max_length=50, null=True, blank=True)  
     
-    following = models.ManyToManyField('self')
+    following = models.ManyToManyField('self', null=True, blank=True)
     
     facebook_link = models.CharField(max_length=128, null=True, blank=True)
     twitter_link = models.CharField(max_length=128, null=True, blank=True)
@@ -54,8 +54,8 @@ class User(AbstractUser):
         
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    followers = models.ManyToManyField('self')
-    following = models.ManyToManyField('self')
+    followers = models.ManyToManyField('self', null=True, blank=True)
+    following = models.ManyToManyField('self', null=True, blank=True)
     
 
 

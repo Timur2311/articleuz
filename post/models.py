@@ -8,6 +8,9 @@ class Tags(models.Model):
     
 class Article(models.Model):
     
+    
+    update_count = models.IntegerField(default=0)
+    
     title = models.CharField(max_length=4096)
     image = models.ImageField(upload_to="artciles/")
     description = models.TextField(max_length=4096)
@@ -15,7 +18,7 @@ class Article(models.Model):
     
     tags = models.ManyToManyField(Tags, related_name="tag_articles")
     
-    author = models.ForeignKey('common.Author', verbose_name="articles", on_delete=models.CASCADE)
+    author = models.ForeignKey('common.Author', verbose_name="author_articles", on_delete=models.CASCADE)
     
     view_count = models.PositiveBigIntegerField(default=0)
     is_popular = models.BooleanField(default=False)

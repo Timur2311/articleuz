@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'common',
     'post',
     'rest_framework',
+    'rest_framework.authtoken',
+    "jobhunt",
 ]
 
 MIDDLEWARE = [
@@ -134,4 +136,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
 try:
     from .local_settings import *  # noqa
 except ImportError:
-    pass # noqa
+    pass  # noqa
